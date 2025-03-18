@@ -79,14 +79,14 @@ with gr.Blocks() as iface:
 
     input_type = gr.Radio(["Upload Image", "Enter Image URL"], label="Select Input Type", value="Upload Image")
 
-    image_input = gr.Image(type="pil", label="Upload Image", visible=True)
+    image_input = gr.Image(type="pil", label="Upload Image", visible=True, height=640, width=640)
     url_input = gr.Textbox(label="Enter Image URL", placeholder="https://example.com/image.jpg", visible=False)
 
     input_type.change(toggle_input, inputs=[input_type], outputs=[image_input, url_input])
 
     with gr.Row():
-        image_output_pretrained = gr.Image(type="numpy", label="Pretrained Model Output")
-        image_output_finetuned = gr.Image(type="numpy", label="Fine-Tuned Model Output")
+        image_output_pretrained = gr.Image(type="numpy", label="Pretrained Model Output", height=640, width=640)
+        image_output_finetuned = gr.Image(type="numpy", label="Fine-Tuned Model Output", height=640, width=640)
 
     with gr.Row():
         count_pretrained_text = gr.Textbox(label="Pretrained Model Detection Count")
